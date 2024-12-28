@@ -1,48 +1,23 @@
-package com.sakamoti55.myapp.entity;
+// src/main/java/com/sakamoti55/myapp/dto/ShiftDataDTO.java
+package com.sakamoti55.myapp.dto;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Entity
-public class ShiftData {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long shiftdataId;
-
-    // shiftDataとemployeeを多対一で定義
-    @ManyToOne
-    @JoinColumn(name = "employee_id", nullable = false)
-    private Employee employee;
-
-    @Column(nullable = false)
+public class ShiftDataDTO {
+    // ポスト時の型を定義
+    private Long employeeId;
     private LocalDate date;
-
-    @Column(nullable = false)
     private LocalTime startTime;
-
-    @Column(nullable = false)
     private LocalTime endTime;
 
-    // コンストラクタ
-    public ShiftData() {}
-
     // ゲッターとセッター
-    public Long getShiftDataId() {
-        return shiftdataId;
+    public Long getEmployeeId() {
+        return employeeId;
     }
 
-    public void setShiftDataId(Long id) {
-        this.shiftdataId = id;
-    }
-
-    public Employee getEmployee() { 
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) { 
-        this.employee = employee;
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
     }
 
     public LocalDate getDate() {
