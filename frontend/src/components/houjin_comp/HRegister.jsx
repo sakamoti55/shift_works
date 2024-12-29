@@ -1,6 +1,57 @@
+import React, { useState, useEffect } from 'react';
+
 function HRegister(){
+
+    const [companyName,setCompanyName] = useState();
+    const [message,setMessage] = useState();
+
+
+    // form送信時の挙動
+    const handelSubmit = async(e) => {
+        e.preventDefault();
+        const data = {
+            companyName
+        };
+        
+        try {
+            // 非同期
+            const res = await fetch('http://localhost:8080/api/company', {
+                method: 'POST',
+                headers:{'Content-Type': 'application/json'},
+                body:JSON.stringify(data)
+            });
+
+            if(!res.ok){
+                throw new Error('Failed to create company');
+            }
+
+            // 非同期
+            const json = await res.json();
+
+            // テンプレートリテラル
+            setMessage(`Registration is successful: companyName=${json.companyName}`);
+
+        }catch(err){
+            console.log(err);
+            setMessage('Registration failed.')
+        }
+        
+    };
+    
     return (
-        <h2>HRegister</h2>
+        <div>
+            <h2>HRegister</h2>
+            <form onSubmit={handelSubmit}>
+                <label>会社名: </label>
+                <input
+                    type="text"
+                    value={companyName}
+                    onChange={e => setCompanyName(e.target.value)}
+                />
+                <button type="submit">register</button>
+            </form>
+            {message ? <p>{message}</p> : <p>aaa</p>}
+        </div>
     )
 }
 
