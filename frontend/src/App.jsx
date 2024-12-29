@@ -11,6 +11,9 @@ import SRegister from './components/houjin_comp/h_login_comp/SRegister';
 
 import SLogin from './components/syain_comp/SLogin';
 
+import ShiftRegister from './components/syain_comp/s_login_comp/ShiftRegister';
+import ShiftView from './components/syain_comp/s_login_comp/ShiftView';
+
 function App() {
   return (
     <Router>
@@ -21,15 +24,15 @@ function App() {
           {/* トップページ */}
           <Route index element={<Top />} />
 
-          {/* Houjinセクション */}
+          {/* 法人セクション */}
           <Route path="houjin"> 
             <Route index element={<Houjin />} />
             <Route path="h_register" element={<HRegister />} />
 
-            {/* h_loginセクション */}
+            {/* 法人ログインセクション */}
             <Route path="h_login">
               <Route index element={<HLogin />} />
-              <Route path="s_register" element={<SRegister/>} />
+              <Route path="s_register" element={<SRegister />} />
             </Route>
 
           </Route>
@@ -37,7 +40,14 @@ function App() {
           {/* 社員セクション */}
           <Route path="syain">
             <Route index element={<Syain />} />
-            <Route path="s_login" element={<SLogin />} />
+
+            {/* 社員ログインセクション */}
+            <Route path="s_login">
+              <Route index element={<SLogin />} />
+              <Route path="shift_register" element={<ShiftRegister />} />
+              <Route path="shift_view" element={<ShiftView />} />
+
+            </Route>
           </Route>
 
         </Route>
