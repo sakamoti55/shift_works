@@ -7,7 +7,7 @@ function ShiftRegister(){
     const [endTime,setEndTime] = useState();
 
     const [message,setMessage] = useState('');
-const [shiftData, setShiftData] = useState([]); // シフトデータを管理するステート
+    const [shiftData, setShiftData] = useState([]); // シフトデータを管理するステート
 
     const fetchShift = async () => {
         try {
@@ -56,15 +56,15 @@ const [shiftData, setShiftData] = useState([]); // シフトデータを管理�
 
             setMessage('Registration is successful');
 
-fetchShift();
+            fetchShift();
 
         }catch{
             console.log(err);
             setMessage('Registration failed')
         }
 
-
-        }
+        
+    }
     return (
         <div>
             <h2>ShiftRegister</h2>
@@ -105,6 +105,33 @@ fetchShift();
                     <button onSubmit={handleClick}>register</button>
                 </form>
                 {message ? <p>{message}</p> : <p>nonono</p>}
+            </div>
+            <div>
+            <h2>登録されたシフト一覧</h2>
+            {shiftData.length > 0 ? (
+              <table border="1" cellPadding="10">
+                <thead>
+                  <tr>
+                    <th>ShiftDataID</th>
+                    <th>日付</th>
+                    <th>開始時間</th>
+                    <th>終了時間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {shiftData.map(shift => (
+                    <tr key={shift.id}>
+                      <td>{shift.id}</td>
+                      <td>{shift.date}</td>
+                      <td>{shift.startTime}</td>
+                      <td>{shift.endTime}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <p>シフトが登録されていません。</p>
+            )}
             </div>
         </div>
     )
