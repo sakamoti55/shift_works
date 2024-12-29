@@ -13,6 +13,7 @@ import com.sakamoti55.myapp.exception.ResourceNotFoundException;
 
 @RestController
 @RequestMapping("/api/employee")
+@CrossOrigin(origins="*")
 public class EmployeeController {
     
     @Autowired
