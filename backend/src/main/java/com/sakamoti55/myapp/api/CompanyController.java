@@ -22,6 +22,12 @@ public class CompanyController {
         return ResponseEntity.ok(saved);
     }
 
+    // api/company/{companyname}にアクセスした際、companynameを引数として使用
+    @GetMapping("/{companyName}")
+    public ResponseEntity<?> getCompanyByCompanyName(@PathVariable String companyName) {
+        return ResponseEntity.ok(companyRepository.findByCompanyName(companyName));
+    }
+    
     @GetMapping
     public ResponseEntity<?> getAllCompany(){
         return ResponseEntity.ok(companyRepository.findAll());
