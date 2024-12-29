@@ -9,6 +9,9 @@ function ShiftRegister(){
     const [message,setMessage] = useState('');
     const [shiftData, setShiftData] = useState([]); // シフトデータを管理するステート
 
+    useEffect(() => {
+        fetchShift();
+    },[])
     const fetchShift = async () => {
         try {
             const res = await fetch('http://localhost:8080/api/shiftdata',{
