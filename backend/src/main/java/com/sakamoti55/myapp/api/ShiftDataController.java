@@ -14,6 +14,7 @@ import com.sakamoti55.myapp.repository.ShiftDataRepository;
 
 @RestController
 @RequestMapping("/api/shiftdata")
+@CrossOrigin(origins="*")
 public class ShiftDataController {
     
     @Autowired
