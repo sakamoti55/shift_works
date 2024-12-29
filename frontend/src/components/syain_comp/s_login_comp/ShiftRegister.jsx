@@ -8,6 +8,37 @@ function ShiftRegister(){
 
     const [message,setMessage] = useState('');
     const handleClick = async (e) => {
+        e.preventDefault();
+
+        const data = {
+            employeeId:Number(employeeId),
+            date,
+            startTime:`${startTime}:00`,
+            endTime:`${endTime}:00`
+        }
+
+        try {
+            const res = await fetch('localhost:8080/api/shiftdata',{
+                method:"POST",
+                headers:{"Content-Type": "application/json"},
+                body: JSON.stringfy(data),
+            });
+
+            if(!res.ok){
+                throw new Error('Failed to register');
+            }
+
+            // const json = await res.json();
+
+            setMessage('Registration is successful');
+
+
+        }catch{
+            console.log(err);
+            setMessage('Registration failed')
+        }
+
+
         }
     return (
         <div>
