@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Top from './components/Top';
 import Houjin from './components/Houjin';
@@ -16,7 +16,7 @@ import ShiftView from './components/syain_comp/s_login_comp/ShiftView';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <h1>route</h1>
       <Routes>
         <Route path="/">
@@ -34,7 +34,6 @@ function App() {
               <Route index element={<HLogin />} />
               <Route path="s_register" element={<SRegister />} />
             </Route>
-
           </Route>
 
           {/* 社員セクション */}
@@ -46,13 +45,11 @@ function App() {
               <Route index element={<SLogin />} />
               <Route path="shift_register" element={<ShiftRegister />} />
               <Route path="shift_view" element={<ShiftView />} />
-
             </Route>
           </Route>
-
         </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
