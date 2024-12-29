@@ -11,7 +11,7 @@ function ShiftRegister(){
 
     const fetchShift = async () => {
         try {
-            const res = await fetch('localhost:8080/api/shiftdata',{
+            const res = await fetch('http://localhost:8080/api/shiftdata',{
                 method:"GET",
                 headers:{"Content-Type": "application/json"},
             });
@@ -42,10 +42,10 @@ function ShiftRegister(){
         }
 
         try {
-            const res = await fetch('localhost:8080/api/shiftdata',{
+            const res = await fetch('http://localhost:8080/api/shiftdata',{
                 method:"POST",
                 headers:{"Content-Type": "application/json"},
-                body: JSON.stringfy(data),
+                body: JSON.stringify(data),
             });
 
             if(!res.ok){
@@ -58,7 +58,7 @@ function ShiftRegister(){
 
             fetchShift();
 
-        }catch{
+        }catch(err){
             console.log(err);
             setMessage('Registration failed')
         }
@@ -69,7 +69,7 @@ function ShiftRegister(){
         <div>
             <h2>ShiftRegister</h2>
             <div>
-                <form>
+                <form onSubmit={handleClick}>
                     <div>
                     <label>社員ID: </label>
                     <input 
@@ -102,7 +102,7 @@ function ShiftRegister(){
                         onChange={e => setEndTime(e.target.value)}
                     />
                     </div>
-                    <button onSubmit={handleClick}>register</button>
+                    <button type="submit">register</button>
                 </form>
                 {message ? <p>{message}</p> : <p>nonono</p>}
             </div>
