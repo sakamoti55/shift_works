@@ -9,6 +9,8 @@ import com.sakamoti55.myapp.entity.Company;
 
 @RestController
 @RequestMapping("/api/company")
+// オリジンは、プロトコル・ホスト・ポート番号のみ(passは要らない)
+@CrossOrigin(origins = "http://localhost:5173")
 public class CompanyController {
     
     @Autowired
