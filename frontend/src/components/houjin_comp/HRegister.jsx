@@ -74,16 +74,21 @@ function HRegister(){
     return (
         <div>
             <h2>HRegister</h2>
-            <form onSubmit={handelSubmit}>
-                <label>会社名: </label>
-                <input
-                    type="text"
-                    value={companyName}
-                    onChange={e => setCompanyName(e.target.value)}
-                />
-                <button type="submit">register</button>
-            </form>
-            {message ? <p>{message}</p> : <p>aaa</p>}
+            <div>
+                <form onSubmit={handelSubmit}>
+                    <label>会社名: </label>
+                    <input
+                        type="text"
+                        value={companyName}
+                        onChange={e => setCompanyName(e.target.value)}
+                    />
+                    <button type="submit">register</button>
+                </form>
+                {message ? <p>{message}</p> : <p>nanana</p>}
+            </div>
+            <div>
+                <p>{message2}</p>
+            </div>
         </div>
     )
 }
