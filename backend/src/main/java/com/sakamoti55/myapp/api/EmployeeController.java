@@ -43,6 +43,11 @@ public class EmployeeController {
         return ResponseEntity.ok(savedEmployee);
     }
 
+    @GetMapping("/{employeeName}")
+    public ResponseEntity<?> getEmployeeByEmployeeName(@PathVariable String employeeName){
+        return ResponseEntity.ok(employeeRepository.findByEmployeeName(employeeName));
+    }
+
     @GetMapping
     public ResponseEntity<?> getAllEmployee(){
         return ResponseEntity.ok(employeeRepository.findAll());
