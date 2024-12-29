@@ -7,6 +7,30 @@ function ShiftRegister(){
     const [endTime,setEndTime] = useState();
 
     const [message,setMessage] = useState('');
+const [shiftData, setShiftData] = useState([]); // シフトデータを管理するステート
+
+    const fetchShift = async () => {
+        try {
+            const res = await fetch('localhost:8080/api/shiftdata',{
+                method:"GET",
+                headers:{"Content-Type": "application/json"},
+            });
+
+            if(!res.ok){
+                throw new Error('Failed to register');
+            }
+
+            const json = await res.json();
+            setShiftData(json);
+
+            setMessage('Registration is successful');
+
+        }catch{
+            console.log(err);
+            setMessage('Registration failed')
+        }
+    }
+
     const handleClick = async (e) => {
         e.preventDefault();
 
@@ -32,6 +56,7 @@ function ShiftRegister(){
 
             setMessage('Registration is successful');
 
+fetchShift();
 
         }catch{
             console.log(err);
