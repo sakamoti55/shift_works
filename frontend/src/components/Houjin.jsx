@@ -13,7 +13,7 @@ function Houjin(){
     return (
         <div>
             <h2>houjin</h2>
-            <button onClick={goToHRegister}>Go to SRegister</button>
+            <button onClick={goToHRegister}>Go to HRegister</button>
             <button onClick={goToHLogin}>Go to HLogin</button>
         </div>
     )
