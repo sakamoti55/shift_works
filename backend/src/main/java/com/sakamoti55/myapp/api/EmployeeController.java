@@ -13,6 +13,7 @@ import com.sakamoti55.myapp.exception.ResourceNotFoundException;
 
 @RestController
 @RequestMapping("/api/employee")
+@CrossOrigin(origins="*")
 public class EmployeeController {
     
     @Autowired
@@ -40,6 +41,11 @@ public class EmployeeController {
         // Employeeを保存
         Employee savedEmployee = employeeRepository.save(employee);
         return ResponseEntity.ok(savedEmployee);
+    }
+
+    @GetMapping("/{employeeName}")
+    public ResponseEntity<?> getEmployeeByEmployeeName(@PathVariable String employeeName){
+        return ResponseEntity.ok(employeeRepository.findByEmployeeName(employeeName));
     }
 
     @GetMapping
