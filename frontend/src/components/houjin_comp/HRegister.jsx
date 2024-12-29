@@ -62,7 +62,8 @@ function HRegister(){
 
             // テンプレートリテラル
             setMessage(`Registration is successful: companyName=${json.companyName}`);
-
+            // getCompanyId関数の呼び出し
+            getCompanyId();
         }catch(err){
             console.log(err);
             setMessage('Registration failed.')
