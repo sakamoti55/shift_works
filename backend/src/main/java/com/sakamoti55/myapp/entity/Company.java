@@ -13,6 +13,10 @@ public class Company {
     @Column(name = "company_name", nullable = false, unique = true)
     private String companyName;
 
+    // ユニーク
+    @Column(name = "company_password", nullable = false, unique = true)
+    private String companyPassword;
+
     // コンストラクタ
     public Company() {}
 
@@ -31,5 +35,13 @@ public class Company {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+    public String getCompanyPassword() {
+        return companyPassword;
+    }
+
+    public void setCompanyPassword(String companyPassword) {
+        this.companyPassword = companyPassword;
     }
 }

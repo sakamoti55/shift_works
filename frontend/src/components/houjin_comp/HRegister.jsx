@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 function HRegister(){
 
     const [companyName,setCompanyName] = useState('');
+    const [companyPassword,setCompanyPassword] = useState('');
     const [message,setMessage] = useState('');
     const [companyId,setCompanyId] = useState('');
     const [message2,setMessage2] = useState('');
@@ -42,7 +43,9 @@ function HRegister(){
     const handelSubmit = async(e) => {
         e.preventDefault();
         const data = {
-            companyName
+            companyName,
+            companyPassword
+            
         };
         
         try {
@@ -76,12 +79,22 @@ function HRegister(){
             <h2>HRegister</h2>
             <div>
                 <form onSubmit={handelSubmit}>
-                    <label>会社名: </label>
-                    <input
-                        type="text"
-                        value={companyName}
-                        onChange={e => setCompanyName(e.target.value)}
-                    />
+                    <div>
+                        <label>会社名: </label>
+                        <input
+                            type="text"
+                            value={companyName}
+                            onChange={e => setCompanyName(e.target.value)}
+                        />
+                        </div>
+                        <div>
+                        <label>パスワード: </label>
+                        <input
+                            type="password"
+                            value={companyPassword}
+                            onChange={e => setCompanyPassword(e.target.value)}
+                        />
+                    </div>                    
                     <button type="submit">register</button>
                 </form>
                 {message ? <p>{message}</p> : <p>nanana</p>}
