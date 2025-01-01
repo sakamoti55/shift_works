@@ -10,7 +10,7 @@ import com.sakamoti55.myapp.entity.Employee;
 import com.sakamoti55.myapp.repository.CompanyRepository;
 import com.sakamoti55.myapp.repository.EmployeeRepository;
 import com.sakamoti55.myapp.exception.ResourceNotFoundException;
-
+import java.util.List;
 @RestController
 @RequestMapping("/api/employee")
 @CrossOrigin(origins="*")
@@ -52,4 +52,26 @@ public class EmployeeController {
     public ResponseEntity<?> getAllEmployee(){
         return ResponseEntity.ok(employeeRepository.findAll());
     }
+
+    @GetMapping("/company/{companyId}")
+    public ResponseEntity<?> getEmployeesByCompanyId(@PathVariable Long companyId) {
+        // companyIdに紐づく社員一覧を取得
+        // 方法1: カスタムクエリをRepositoryに定義
+        // 方法2: 既にEmployeeに@OneToMany/@ManyToOneがあればそれを使う
+        // ここではシンプルにカスタムクエリ例を示す:
+        List<Employee> employees = employeeRepository.findByCompanyId(companyId);
+        return ResponseEntity.ok(employees);
+    }
+
+    @DeleteMapping("/{employeeId}")
+    public ResponseEntity<?> deleteEmployee(@PathVariable Long employeeId) {
+        // 社員が存在するかチェック
+        Employee employee = employeeRepository.findById(employeeId)
+            .orElseThrow(() -> new ResourceNotFoundException("Employee not found with id " + employeeId));
+    
+        employeeRepository.delete(employee);
+    
+        return ResponseEntity.ok("Employee with id " + employeeId + " deleted.");
+    }
+    
 }
