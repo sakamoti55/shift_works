@@ -38,3 +38,5 @@ out/
 
 ### application.properties ###
 application.properties
+
+keystore.p12
