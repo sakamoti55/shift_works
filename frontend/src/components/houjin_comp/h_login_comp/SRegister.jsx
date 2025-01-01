@@ -10,7 +10,7 @@ function SRegister(){
 
     const getEmployeeId = async () => {
         try {
-            const res = await fetch(`http://localhost:8080/api/employee/${employeeName}`,{
+            const res = await fetch(`https://localhost:8443/api/employee/${employeeName}`,{
                 method: 'GET',
                 headers:{'Content-Type': 'application/json'}
             });
@@ -43,7 +43,7 @@ function SRegister(){
         }
         
         try {
-            const res = await fetch('http://localhost:8080/api/employee',{
+            const res = await fetch('https://localhost:8443/api/employee',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify(data)

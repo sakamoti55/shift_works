@@ -11,7 +11,7 @@ function HRegister(){
 
         try {
             // 非同期
-            const res = await fetch(`http://localhost:8080/api/company/${companyName}`,{
+            const res = await fetch(`https://localhost:8443/api/company/${companyName}`,{
                 method: 'GET',
                 headers:{'Content-Type': 'application/json'}
             });
@@ -27,7 +27,7 @@ function HRegister(){
 
             setCompanyId(json.companyId);
 
-        }catch{
+        }catch(err){
             console.log(err);
             setMessage2('Fetching companyId failed');
         }
@@ -47,7 +47,7 @@ function HRegister(){
         
         try {
             // 非同期
-            const res = await fetch('http://localhost:8080/api/company', {
+            const res = await fetch('https://localhost:8443/api/company', {
                 method: 'POST',
                 headers:{'Content-Type': 'application/json'},
                 body:JSON.stringify(data)
