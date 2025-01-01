@@ -32,7 +32,7 @@ function App() {
             {/* 法人ログインセクション */}
             <Route path="h_login">
               <Route index element={<HLogin />} />
-              <Route path="s_register" element={<SRegister />} />
+              <Route path="s_register/:companyId" element={<SRegister />} />
             </Route>
           </Route>
 
