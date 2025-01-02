@@ -36,7 +36,7 @@ function HRegister(){
 
     // 中身の処理を書きやすいのでuseEffectで書き直した
     useEffect(() => {
-        companyId === '' ? setMessage2(`Company ID will be displayed here.`) : setMessage2(`your company id is ${companyId}.`) 
+        companyId === '' ? setMessage2(`会社IDはこちらに表示されます。`) : setMessage2(`your company id is ${companyId}.`) 
     },[companyId])
 
     // form送信時の挙動
@@ -76,7 +76,7 @@ function HRegister(){
     
     return (
         <div>
-            <h2>HRegister</h2>
+            <h2>会社登録フォーム</h2>
             <div>
                 <form onSubmit={handelSubmit}>
                     <div>
@@ -95,9 +95,9 @@ function HRegister(){
                             onChange={e => setCompanyPassword(e.target.value)}
                         />
                     </div>                    
-                    <button type="submit">register</button>
+                    <button type="submit">登録</button>
                 </form>
-                {message ? <p>{message}</p> : <p>nanana</p>}
+                {message ? <p>{message}</p> : <p></p>}
             </div>
             <div>
                 <p>{message2}</p>

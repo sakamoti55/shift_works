@@ -12,9 +12,9 @@ function Houjin(){
     }
     return (
         <div>
-            <h2>houjin</h2>
-            <button onClick={goToHRegister}>Go to HRegister</button>
-            <button onClick={goToHLogin}>Go to HLogin</button>
+            <h2>管理者ページ</h2>
+            <button onClick={goToHRegister}>会社登録フォーム</button>
+            <button onClick={goToHLogin}>社員登録フォーム</button>
         </div>
     )
 }

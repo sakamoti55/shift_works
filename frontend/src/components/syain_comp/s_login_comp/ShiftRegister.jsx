@@ -70,7 +70,7 @@ function ShiftRegister(){
     }
     return (
         <div>
-            <h2>ShiftRegister</h2>
+            <h2>シフト登録フォーム</h2>
             <div>
                 <form onSubmit={handleClick}>
                     <div>
@@ -124,7 +124,7 @@ function ShiftRegister(){
                 <tbody>
                   {shiftData.map(shift => (
                     <tr key={shift.id}>
-                      <td>{shift.id}</td>
+                      <td>{shift.employee.employeeName}</td>
                       <td>{shift.date}</td>
                       <td>{shift.startTime}</td>
                       <td>{shift.endTime}</td>

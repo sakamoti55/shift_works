@@ -12,12 +12,11 @@ import SRegister from './components/houjin_comp/h_login_comp/SRegister';
 import SLogin from './components/syain_comp/SLogin';
 
 import ShiftRegister from './components/syain_comp/s_login_comp/ShiftRegister';
-import ShiftView from './components/syain_comp/s_login_comp/ShiftView';
 
 function App() {
   return (
     <BrowserRouter>
-      <h1>route</h1>
+      <h1>シフト管理ツール</h1>
       <Routes>
         <Route path="/">
 
@@ -44,7 +43,6 @@ function App() {
             <Route path="s_login">
               <Route index element={<SLogin />} />
               <Route path="shift_register" element={<ShiftRegister />} />
-              <Route path="shift_view" element={<ShiftView />} />
             </Route>
           </Route>
         </Route>

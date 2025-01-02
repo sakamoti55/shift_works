@@ -14,9 +14,9 @@ function Top() {
 
   return (
     <div>
-      <h1>Top Page</h1>
-      <button onClick={goToHoujin}>Go to houjin</button>
-      <button onClick={goToSyain}>Go to syain</button>
+      <h1>TOP　PAGE</h1>
+      <button onClick={goToHoujin}>管理者の方はこちら</button>
+      <button onClick={goToSyain}>社員の方はこちら</button>
     </div>
   );
 }

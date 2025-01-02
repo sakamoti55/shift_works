@@ -6,15 +6,11 @@ function SLogin(){
     const goToShift = () => {
         navigate('/syain/s_login/shift_register');
     }
-    const goToView = () => {
-        navigate('/syain/s_login/shift_view');
-    }
 
     return (
         <div>
             <h2>SLogin</h2>
-            <button onClick={goToShift}>goToShift</button>
-            <button onClick={goToView}>goToView</button>
+            <button onClick={goToShift}>シフトフォームへ</button>
         </div>
  
     )
