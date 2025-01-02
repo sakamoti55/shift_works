@@ -14,7 +14,7 @@ function ShiftRegister(){
     },[])
     const fetchShift = async () => {
         try {
-            const res = await fetch('http://localhost:8080/api/shiftdata',{
+            const res = await fetch('https://localhost:8443/api/shiftdata',{
                 method:"GET",
                 headers:{"Content-Type": "application/json"},
             });
@@ -45,7 +45,7 @@ function ShiftRegister(){
         }
 
         try {
-            const res = await fetch('http://localhost:8080/api/shiftdata',{
+            const res = await fetch('https://localhost:8443/api/shiftdata',{
                 method:"POST",
                 headers:{"Content-Type": "application/json"},
                 body: JSON.stringify(data),

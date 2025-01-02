@@ -131,3 +131,7 @@ dist
 
 # vite
 .vite
+
+# .pem
+localhost-key.pem
+localhost.pem

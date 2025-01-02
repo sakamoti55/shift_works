@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 function HRegister(){
 
     const [companyName,setCompanyName] = useState('');
+    const [companyPassword,setCompanyPassword] = useState('');
     const [message,setMessage] = useState('');
     const [companyId,setCompanyId] = useState('');
     const [message2,setMessage2] = useState('');
@@ -11,7 +12,7 @@ function HRegister(){
 
         try {
             // 非同期
-            const res = await fetch(`http://localhost:8080/api/company/${companyName}`,{
+            const res = await fetch(`https://localhost:8443/api/company/${companyName}`,{
                 method: 'GET',
                 headers:{'Content-Type': 'application/json'}
             });
@@ -27,7 +28,7 @@ function HRegister(){
 
             setCompanyId(json.companyId);
 
-        }catch{
+        }catch(err){
             console.log(err);
             setMessage2('Fetching companyId failed');
         }
@@ -42,12 +43,14 @@ function HRegister(){
     const handelSubmit = async(e) => {
         e.preventDefault();
         const data = {
-            companyName
+            companyName,
+            companyPassword
+            
         };
         
         try {
             // 非同期
-            const res = await fetch('http://localhost:8080/api/company', {
+            const res = await fetch('https://localhost:8443/api/company', {
                 method: 'POST',
                 headers:{'Content-Type': 'application/json'},
                 body:JSON.stringify(data)
@@ -76,12 +79,22 @@ function HRegister(){
             <h2>HRegister</h2>
             <div>
                 <form onSubmit={handelSubmit}>
-                    <label>会社名: </label>
-                    <input
-                        type="text"
-                        value={companyName}
-                        onChange={e => setCompanyName(e.target.value)}
-                    />
+                    <div>
+                        <label>会社名: </label>
+                        <input
+                            type="text"
+                            value={companyName}
+                            onChange={e => setCompanyName(e.target.value)}
+                        />
+                        </div>
+                        <div>
+                        <label>パスワード: </label>
+                        <input
+                            type="password"
+                            value={companyPassword}
+                            onChange={e => setCompanyPassword(e.target.value)}
+                        />
+                    </div>                    
                     <button type="submit">register</button>
                 </form>
                 {message ? <p>{message}</p> : <p>nanana</p>}
