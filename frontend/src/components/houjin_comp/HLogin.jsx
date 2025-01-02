@@ -43,7 +43,7 @@ function HLogin() {
 
   return (
     <div>
-      <h2>HLogin</h2>
+      <h2>会社ログイン画面</h2>
       <div>
         <label>会社ID: </label>
         <input

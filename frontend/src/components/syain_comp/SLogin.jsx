@@ -9,7 +9,7 @@ function SLogin(){
 
     return (
         <div>
-            <h2>SLogin</h2>
+            <h2>社員ログインフォーム</h2>
             <button onClick={goToShift}>シフトフォームへ</button>
         </div>
  

@@ -51,9 +51,9 @@ function SRegister() {
 
   useEffect(() => {
     if (employeeId === '') {
-      setMessage2('Employee ID will be displayed here.');
+      setMessage2('社員IDはこちらに表示されます。');
     } else {
-      setMessage2(`Your employee id is ${employeeId}.`);
+      setMessage2(`あなたの社員IDは ${employeeId}です。`);
     }
   }, [employeeId]);
 
@@ -78,22 +78,20 @@ function SRegister() {
       }
 
       const json = await res.json();
-      setMessage(`Registration is successful: employeeName=${json.employeeName}`);
+      setMessage(`登録が完了しました: 社員名は=${json.employeeName}です。`);
 
-      // 社員登録が成功したら一覧を再取得
       fetchEmployees();
+      setEmployeeId(json.employeeId)
 
-      // employeeIdを取得する処理を実行したければ↓
-      // getEmployeeId();
     } catch (err) {
       console.log(err);
-      setMessage('Registration failed.');
+      setMessage('登録に失敗しました。');
     }
   };
 
   return (
     <div>
-      <h2>SRegister</h2>
+      <h2>社員登録フォーム</h2>
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -108,9 +106,10 @@ function SRegister() {
             onChange={(e) => setEmployeeName(e.target.value)}
           />
         </div>
-        <button type="submit">register</button>
+        <button type="submit">登録
+        </button>
       </form>
-      {message ? <p>{message}</p> : <p>nonono</p>}
+      {message ? <p>{message}</p> : <p></p>}
       <p>{message2}</p>
 
       <h3>社員一覧</h3>

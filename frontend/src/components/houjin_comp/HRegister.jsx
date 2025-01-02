@@ -36,7 +36,7 @@ function HRegister(){
 
     // 中身の処理を書きやすいのでuseEffectで書き直した
     useEffect(() => {
-        companyId === '' ? setMessage2(`会社IDはこちらに表示されます。`) : setMessage2(`your company id is ${companyId}.`) 
+        companyId === '' ? setMessage2(`会社IDはこちらに表示されます。`) : setMessage2(`会社IDは ${companyId}です。`) 
     },[companyId])
 
     // form送信時の挙動
@@ -64,12 +64,12 @@ function HRegister(){
             const json = await res.json();
 
             // テンプレートリテラル
-            setMessage(`Registration is successful: companyName=${json.companyName}`);
+            setMessage(`登録が完了しました: 会社名は=${json.companyName}です。`);
             // getCompanyId関数の呼び出し
             getCompanyId();
         }catch(err){
             console.log(err);
-            setMessage('Registration failed.')
+            setMessage('登録に失敗しました')
         }
         
     };

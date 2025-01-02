@@ -26,8 +26,6 @@ function ShiftRegister(){
             const json = await res.json();
             setShiftData(json);
 
-            setMessage('Registration is successful');
-
         }catch{
             console.log(err);
             setMessage('Registration failed')
@@ -52,12 +50,12 @@ function ShiftRegister(){
             });
 
             if(!res.ok){
-                throw new Error('Failed to register');
+                throw new Error('登録に失敗しました');
             }
 
             // const json = await res.json();
 
-            setMessage('Registration is successful');
+            setMessage('登録成功しました');
 
             fetchShift();
 
@@ -107,7 +105,7 @@ function ShiftRegister(){
                     </div>
                     <button type="submit">register</button>
                 </form>
-                {message ? <p>{message}</p> : <p>nonono</p>}
+                {message ? <p>{message}</p> : <p></p>}
             </div>
             <div>
             <h2>登録されたシフト一覧</h2>
